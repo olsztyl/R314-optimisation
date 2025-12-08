@@ -1,9 +1,9 @@
-:root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF;--accent:#06D6A0;--card:#15193A;--shadow:rgba(0,0,0,0.45)}
-:root{--container-width:min(1200px,92%)}
+@import url('extra.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=block');
 :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF;--accent:#06D6A0;--card:#15193A;--shadow:rgba(0,0,0,0.45)}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
-.container{width:var(--container-width);margin:0 auto}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial,sans-serif}
+.container{width:min(1200px,92%);margin:0 auto}
 a{color:var(--fg);text-decoration:none;opacity:.9}a:hover{opacity:1}
 .topbar{position:sticky;top:0;backdrop-filter:blur(6px);background:linear-gradient(180deg,rgba(13,16,35,.8),rgba(13,16,35,.2));z-index:10;box-shadow:0 10px 30px var(--shadow)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
@@ -30,9 +30,18 @@ a{color:var(--fg);text-decoration:none;opacity:.9}a:hover{opacity:1}
 .redundant-3{padding:3px;margin:3px;box-shadow:0 0 3px rgba(0,0,0,.3)}
 .redundant-4{padding:4px;margin:4px;box-shadow:0 0 4px rgba(0,0,0,.4)}
 .redundant-5{padding:0px;margin:5px;box-shadow:0 0 5px rgba(0,0,0,.5)}
-
-/* Removed many redundant helper classes to reduce CSS size. If needed, reintroduce
-	only the specific utilities used in the design. */
+.redundant-6{padding:1px;margin:6px;box-shadow:0 0 6px rgba(0,0,0,.6)}
+.redundant-7{padding:2px;margin:0px;box-shadow:0 0 7px rgba(0,0,0,.7)}
+.redundant-8{padding:3px;margin:1px;box-shadow:0 0 8px rgba(0,0,0,.8)}
+.redundant-9{padding:4px;margin:2px;box-shadow:0 0 0px rgba(0,0,0,.0)}
+.redundant-10{padding:0px;margin:3px;box-shadow:0 0 1px rgba(0,0,0,.1)}
+.redundant-11{padding:1px;margin:4px;box-shadow:0 0 2px rgba(0,0,0,.2)}
+.redundant-12{padding:2px;margin:5px;box-shadow:0 0 3px rgba(0,0,0,.3)}
+.redundant-13{padding:3px;margin:6px;box-shadow:0 0 4px rgba(0,0,0,.4)}
+.redundant-14{padding:4px;margin:0px;box-shadow:0 0 5px rgba(0,0,0,.5)}
+.redundant-15{padding:0px;margin:1px;box-shadow:0 0 6px rgba(0,0,0,.6)}
+.redundant-16{padding:1px;margin:2px;box-shadow:0 0 7px rgba(0,0,0,.7)}
+.redundant-17{padding:2px;margin:3px;box-shadow:0 0 8px rgba(0,0,0,.8)}
 .redundant-18{padding:3px;margin:4px;box-shadow:0 0 0px rgba(0,0,0,.0)}
 .redundant-19{padding:4px;margin:5px;box-shadow:0 0 1px rgba(0,0,0,.1)}
 .redundant-20{padding:0px;margin:6px;box-shadow:0 0 2px rgba(0,0,0,.2)}

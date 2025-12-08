@@ -77,14 +77,12 @@
 
   function collectResources(){
     const entries = performance.getEntriesByType('resource');
-    // Exclude low-priority prefetch requests from counts to avoid skewing the panel
-    const realEntries = entries.filter(r => !(r.initiatorType === 'link' && /prefetch|prerender/.test(r.name)));
-    state.resources = realEntries;
-    state.totalRequests = realEntries.length + 1; // +1 pour le document HTML
+    state.resources = entries;
+    state.totalRequests = entries.length + 1; // +1 pour le document HTML
 
     // Try transferSize/encodedBodySize; fallback à encoded if transfer is 0; sinon unknown
     let total = 0;
-    for(const r of realEntries){
+    for(const r of entries){
       const bytes = (r.transferSize && r.transferSize>0) ? r.transferSize : (r.encodedBodySize||0);
       total += bytes;
     }
