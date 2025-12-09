@@ -12,7 +12,30 @@
   <!-- Preload LCP images and critical stylesheet -->
   <link rel="preload" as="image" href="img/img1.jpg">
   <link rel="preload" as="image" href="img/img2.jpg">
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Inline critical CSS to avoid render-blocking stylesheet fetch -->
+  <style>
+  /* Minimal consolidated stylesheet for performance (inlined critical CSS) */
+  :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
+  .container{width:min(1200px,92%);margin:0 auto;padding:0 8px}
+  .topbar{position:sticky;top:0;background:rgba(10,12,28,.6);backdrop-filter:blur(6px);padding:12px 0}
+  .logo{font-weight:700}
+  .menu{display:flex;gap:14px}
+  .hero{padding:56px 0 28px}
+  .hero h1{font-size:clamp(22px,4vw,44px);margin:0 0 8px}
+  .hero p{color:var(--muted);margin:0 0 12px}
+  .cta{background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none}
+  .gallery{padding:28px 0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .card{background:#15193A;border-radius:10px;overflow:hidden}
+  .card img{display:block;width:100%;height:auto}
+  .features{padding:28px 0}
+  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .feature{background:#15193A;padding:12px;border-radius:8px}
+  .footer{text-align:center;padding:20px 0;color:#c9d1d9}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.features-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
   <!-- Make main enhancement script non-blocking -->
   <script src="js/script.js" defer></script>
   </head>
