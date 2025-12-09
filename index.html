@@ -4,6 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Site vitrine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Preload LCP image and critical stylesheet -->
+  <link rel="preload" as="image" href="img/img1.jpg">
   <link rel="stylesheet" href="css/styles.css" />
   <!-- Make main enhancement script non-blocking -->
   <script src="js/script.js" defer></script>
@@ -35,22 +42,22 @@
         <h2>Galerie</h2>
         <div class="grid">
           <div class="card">
-            <a href="img1.html"><img src="img/img1.jpg" alt="Image 1" /></a>
+            <a href="img1.html"><img src="img/img1.jpg" alt="Image 1" width="663" height="374" fetchpriority="high" /></a>
           </div>
           <div class="card">
-            <a href="img2.html"><img src="img/img2.jpg" alt="Image 2" /></a>
+            <a href="img2.html"><img src="img/img2.jpg" alt="Image 2" width="663" height="497" loading="lazy" /></a>
           </div>
           <div class="card">
-            <a href="img3.html"><img src="img/img3.jpg" alt="Image 3" /></a>
+            <a href="img3.html"><img src="img/img3.jpg" alt="Image 3" width="663" height="497" loading="lazy" /></a>
           </div>
           <div class="card">
-            <a href="img4.html"><img src="img/img4.jpg" alt="Image 4" /></a>
+            <a href="img4.html"><img src="img/img4.jpg" alt="Image 4" width="663" height="497" loading="lazy" /></a>
           </div>
           <div class="card">
-            <a href="img5.html"><img src="img/img5.jpg" alt="Image 5" /></a>
+            <a href="img5.html"><img src="img/img5.jpg" alt="Image 5" width="663" height="497" loading="lazy" /></a>
           </div>
           <div class="card">
-            <a href="img6.html"><img src="img/img6.jpg" alt="Image 6" /></a>
+            <a href="img6.html"><img src="img/img6.jpg" alt="Image 6" width="663" height="497" loading="lazy" /></a>
           </div>
         </div>
       </div>
