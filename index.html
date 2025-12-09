@@ -4,8 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Site vitrine</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Make main enhancement script non-blocking -->
+  <script src="js/script.js" defer></script>
   </head>
   <body>
     <div class="topbar">
@@ -102,6 +103,27 @@
         <p>© 2025 — BUT MMI Béziers - MAURIN N.</p>
       </div>
     </div>
-    <script src="js/metrics.js" defer></script>
+    <!-- Load metrics widget lazily during idle or on first interaction -->
+    <script>
+    (function(){
+      var loaded = false;
+      function loadMetrics(){
+        if(loaded) return; loaded = true;
+        var s = document.createElement('script');
+        s.src = 'js/metrics.js';
+        s.async = true;
+        document.body.appendChild(s);
+      }
+      if('requestIdleCallback' in window){
+        requestIdleCallback(loadMetrics, {timeout:2000});
+      } else {
+        window.addEventListener('load', function(){ setTimeout(loadMetrics, 2000); });
+      }
+      // If the user interacts, load earlier
+      ['click','keydown','mousemove','touchstart'].forEach(function(ev){
+        window.addEventListener(ev, function onFirst(){ loadMetrics(); window.removeEventListener(ev, onFirst); }, {once:true});
+      });
+    })();
+    </script>
   </body>
 </html>
