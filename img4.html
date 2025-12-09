@@ -4,14 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Image 4</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/script.js"></script>
+  <link rel="preload" as="image" href="img/img4.webp" type="image/webp">
+  <style>
+  :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
+  .container{width:min(1200px,92%);margin:0 auto;padding:0 8px}
+  .topbar{position:sticky;top:0;background:rgba(10,12,28,.6);backdrop-filter:blur(6px);padding:12px 0}
+  .logo{font-weight:700}
+  .menu{display:flex;gap:14px}
+  .image-wrapper{max-width:100%;margin:20px 0}
+  .image-wrapper img,.image-wrapper picture{display:block;width:100%;height:auto}
+  </style>
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <div class="topbar"><div class="container nav"><div class="logo">Slow<span>Site</span></div><div class="menu"><a href="index.html">← Retour à l'accueil</a></div></div></div>
   <div class="section image-page"><div class="container">
     <h1>Image 4</h1>
-    <div class="image-wrapper"><img src="img/img4.jpg" alt="Image 4"></div>
+    <div class="image-wrapper">
+      <picture>
+        <source srcset="img/img4.webp" type="image/webp">
+        <img src="img/img4.jpg" alt="Image 4" width="663" height="497" loading="eager" decoding="async">
+      </picture>
+    </div>
   </div></div>
 </body>
 </html>

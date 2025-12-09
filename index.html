@@ -9,9 +9,35 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Preload LCP image and critical stylesheet -->
-  <link rel="preload" as="image" href="img/img1.jpg">
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Preload critical WebP images to reduce LCP -->
+  <link rel="preload" as="image" href="img/img1.webp" type="image/webp">
+  <link rel="preload" as="image" href="img/img2.webp" type="image/webp">
+  
+  <!-- Inline critical CSS to avoid render-blocking stylesheet fetch -->
+  <style>
+  /* Minimal consolidated stylesheet for performance (inlined critical CSS) */
+  :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
+  .container{width:min(1200px,92%);margin:0 auto;padding:0 8px}
+  .topbar{position:sticky;top:0;background:rgba(10,12,28,.6);backdrop-filter:blur(6px);padding:12px 0}
+  .logo{font-weight:700}
+  .menu{display:flex;gap:14px}
+  .hero{padding:56px 0 28px}
+  .hero h1{font-size:clamp(22px,4vw,44px);margin:0 0 8px}
+  .hero p{color:var(--muted);margin:0 0 12px}
+  .cta{background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none}
+  .gallery{padding:28px 0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .card{background:#15193A;border-radius:10px;overflow:hidden}
+  .card img{display:block;width:100%;height:auto}
+  .features{padding:28px 0}
+  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .feature{background:#15193A;padding:12px;border-radius:8px}
+  .footer{text-align:center;padding:20px 0;color:#c9d1d9}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.features-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+  
   <!-- Make main enhancement script non-blocking -->
   <script src="js/script.js" defer></script>
   </head>
@@ -42,22 +68,52 @@
         <h2>Galerie</h2>
         <div class="grid">
           <div class="card">
-            <a href="img1.html"><img src="img/img1.jpg" alt="Image 1" width="663" height="374" fetchpriority="high" loading="eager" decoding="async" /></a>
+            <a href="img1.html">
+              <picture>
+                <source srcset="img/img1.webp" type="image/webp">
+                <img src="img/img1.jpg" alt="Image 1" width="663" height="374" fetchpriority="high" loading="eager" decoding="async" />
+              </picture>
+            </a>
           </div>
           <div class="card">
-            <a href="img2.html"><img src="img/img2.jpg" alt="Image 2" width="663" height="497" loading="lazy" /></a>
+            <a href="img2.html">
+              <picture>
+                <source srcset="img/img2.webp" type="image/webp">
+                <img src="img/img2.jpg" alt="Image 2" width="663" height="497" fetchpriority="high" loading="eager" decoding="async" />
+              </picture>
+            </a>
           </div>
           <div class="card">
-            <a href="img3.html"><img src="img/img3.jpg" alt="Image 3" width="663" height="497" loading="lazy" /></a>
+            <a href="img3.html">
+              <picture>
+                <source srcset="img/img3.webp" type="image/webp">
+                <img src="img/img3.jpg" alt="Image 3" width="663" height="497" loading="lazy" decoding="async" />
+              </picture>
+            </a>
           </div>
           <div class="card">
-            <a href="img4.html"><img src="img/img4.jpg" alt="Image 4" width="663" height="497" loading="lazy" /></a>
+            <a href="img4.html">
+              <picture>
+                <source srcset="img/img4.webp" type="image/webp">
+                <img src="img/img4.jpg" alt="Image 4" width="663" height="497" loading="lazy" decoding="async" />
+              </picture>
+            </a>
           </div>
           <div class="card">
-            <a href="img5.html"><img src="img/img5.jpg" alt="Image 5" width="663" height="497" loading="lazy" /></a>
+            <a href="img5.html">
+              <picture>
+                <source srcset="img/img5.webp" type="image/webp">
+                <img src="img/img5.jpg" alt="Image 5" width="663" height="497" loading="lazy" decoding="async" />
+              </picture>
+            </a>
           </div>
           <div class="card">
-            <a href="img6.html"><img src="img/img6.jpg" alt="Image 6" width="663" height="497" loading="lazy" /></a>
+            <a href="img6.html">
+              <picture>
+                <source srcset="img/img6.webp" type="image/webp">
+                <img src="img/img6.jpg" alt="Image 6" width="663" height="497" loading="lazy" decoding="async" />
+              </picture>
+            </a>
           </div>
         </div>
       </div>
