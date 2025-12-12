@@ -1,45 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Site vitrine</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"></noscript>
-
-  <!-- Preload critical WebP images to reduce LCP -->
-  <link rel="preload" as="image" href="img/img1.webp" type="image/webp">
-  <link rel="preload" as="image" href="img/img2.webp" type="image/webp">
-  
-  <!-- Inline critical CSS to avoid render-blocking stylesheet fetch -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Site vitrine</title>
+  <link rel="preload" as="image" href="img/img1.webp">
+  <link rel="preload" as="image" href="img/img2.webp">
   <style>
-  /* Minimal consolidated stylesheet for performance (inlined critical CSS) */
-  :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--primary:#7C5CFF}
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif}
-  .container{width:min(1200px,92%);margin:0 auto;padding:0 8px}
-  .topbar{position:sticky;top:0;background:rgba(10,12,28,.6);backdrop-filter:blur(6px);padding:12px 0}
-  .logo{font-weight:700}
-  .menu{display:flex;gap:14px}
-  .hero{padding:56px 0 28px}
-  .hero h1{font-size:clamp(22px,4vw,44px);margin:0 0 8px}
-  .hero p{color:var(--muted);margin:0 0 12px}
-  .cta{background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none}
-  .gallery{padding:28px 0}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-  .card{background:#15193A;border-radius:10px;overflow:hidden}
-  .card img{display:block;width:100%;height:auto}
-  .features{padding:28px 0}
-  .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .feature{background:#15193A;padding:12px;border-radius:8px}
-  .footer{text-align:center;padding:20px 0;color:#c9d1d9}
-  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.features-grid{grid-template-columns:repeat(2,1fr)}}
+    :root{--bg:#0f1226;--fg:#E8ECF1;--muted:#93A1B1;--accent:#7C5CFF}
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:1rem system-ui,sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.1)}
+    nav .logo{font-weight:700}
+    nav a{margin-left:2rem}
+    .hero{padding:3rem 0;text-align:center}
+    .hero h1{font-size:clamp(1.5rem,5vw,3rem);margin:0 0 1rem}
+    .hero p{color:var(--muted);margin:0}
+    .btn{background:var(--accent);color:#fff;padding:.75rem 1.5rem;border-radius:6px;display:inline-block;margin-top:1rem}
+    .section{padding:3rem 0;border-top:1px solid rgba(255,255,255,.1)}
+    h2{font-size:1.75rem;margin:0 0 2rem}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+    .card{background:#15193A;border-radius:8px;overflow:hidden}
+    .card a{display:block}
+    .card img{width:100%;height:auto;display:block}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem}
+    .feature{padding:1.5rem;background:#15193A;border-radius:8px}
+    .feature-icon{font-size:2.5rem;margin-bottom:1rem}
+    .footer{padding:2rem 0;border-top:1px solid rgba(255,255,255,.1);color:#888;text-align:center;font-size:.9rem}
+    @media (max-width:768px){.gallery{grid-template-columns:repeat(2,1fr)} .features{grid-template-columns:1fr}}
   </style>
-  
-  <!-- Make main enhancement script non-blocking -->
-  <script src="js/script.js" defer></script>
+  <script defer src="js/script.js"></script>
   </head>
   <body>
     <div class="topbar">
@@ -71,7 +63,7 @@
             <a href="img1.html">
               <picture>
                 <source srcset="img/img1.webp" type="image/webp">
-                <img src="img/img1.jpg" alt="Image 1" width="663" height="374" fetchpriority="high" loading="eager" decoding="async" />
+                <img src="img/img1.webp" alt="Image 1" width="663" height="374" fetchpriority="high" loading="eager" decoding="async" />
               </picture>
             </a>
           </div>
@@ -79,7 +71,7 @@
             <a href="img2.html">
               <picture>
                 <source srcset="img/img2.webp" type="image/webp">
-                <img src="img/img2.jpg" alt="Image 2" width="663" height="497" fetchpriority="high" loading="eager" decoding="async" />
+                <img src="img/img2.webp" alt="Image 2" width="663" height="497" fetchpriority="high" loading="eager" decoding="async" />
               </picture>
             </a>
           </div>
@@ -87,7 +79,7 @@
             <a href="img3.html">
               <picture>
                 <source srcset="img/img3.webp" type="image/webp">
-                <img src="img/img3.jpg" alt="Image 3" width="663" height="497" loading="lazy" decoding="async" />
+                <img src="img/img3.webp" alt="Image 3" width="663" height="497" loading="lazy" decoding="async" />
               </picture>
             </a>
           </div>
@@ -95,7 +87,7 @@
             <a href="img4.html">
               <picture>
                 <source srcset="img/img4.webp" type="image/webp">
-                <img src="img/img4.jpg" alt="Image 4" width="663" height="497" loading="lazy" decoding="async" />
+                <img src="img/img4.webp" alt="Image 4" width="663" height="497" loading="lazy" decoding="async" />
               </picture>
             </a>
           </div>
@@ -103,7 +95,7 @@
             <a href="img5.html">
               <picture>
                 <source srcset="img/img5.webp" type="image/webp">
-                <img src="img/img5.jpg" alt="Image 5" width="663" height="497" loading="lazy" decoding="async" />
+                <img src="img/img5.webp" alt="Image 5" width="663" height="497" loading="lazy" decoding="async" />
               </picture>
             </a>
           </div>
@@ -111,7 +103,7 @@
             <a href="img6.html">
               <picture>
                 <source srcset="img/img6.webp" type="image/webp">
-                <img src="img/img6.jpg" alt="Image 6" width="663" height="497" loading="lazy" decoding="async" />
+                <img src="img/img6.webp" alt="Image 6" width="663" height="497" loading="lazy" decoding="async" />
               </picture>
             </a>
           </div>
